@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스 이벤트</title>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+    #box {
+      width: 200px;
+      height: 150px;
+      background-color: aliceblue;
+      margin: 0 auto;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>이벤트 추가/제거</h2>
+  <div id="box"></div>
+  <button type="button" id="addbtn">추가</button>
+  <button type="button" id="removebtn">제거</button>
+  <script>
+    const box = document.getElementById("box");
+    const addBtn = document.getElementById("addbtn");
+    const removeBtn = document.getElementById("removebtn");
+    // 이벤트 실행 변수
+    const enterEvent = () => {
+      alert("hello");
+    };
+
+    // 마우스엔터 이벤트 함수
+    function eventLock() {
+      box.addEventListener('mouseenter', enterEvent);
+    }    
+
+    // 이벤트 제거
+    removeBtn.addEventListener('click', () => {
+      box.removeEventListener('mouseenter', enterEvent);
+    });
+
+    // 이벤트 추가
+    addBtn.addEventListener('click', () => {
+      box.addEventListener('mouseenter', enterEvent);
+    });
+  </script>
+</body>
+
+</html>
